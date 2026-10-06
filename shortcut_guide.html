@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commute Agent Shortcut Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #1C1C1E;
+            color: white;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        .shortcut-block {
+            background-color: #2C2C2E;
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .shortcut-block::after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 32px;
+            width: 2px;
+            height: 12px;
+            background-color: #444;
+        }
+        .shortcut-block:last-child::after {
+            display: none;
+        }
+        .indented {
+            margin-left: 40px;
+        }
+        .indented::after {
+            left: 32px;
+        }
+        .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .icon-blue { background-color: #0A84FF; }
+        .icon-green { background-color: #30D158; }
+        .icon-orange { background-color: #FF9F0A; }
+        .icon-gray { background-color: #8E8E93; }
+        .icon-red { background-color: #FF453A; }
+        
+        .content {
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .magic-variable {
+            background-color: rgba(10, 132, 255, 0.2);
+            color: #0A84FF;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .magic-variable.orange {
+            background-color: rgba(255, 159, 10, 0.2);
+            color: #FF9F0A;
+        }
+        .text-input {
+            color: #0A84FF;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="text-align: center; margin-bottom: 30px;">Commute Agent Shortcut Layout</h2>
+
+    <!-- Block 1 -->
+    <div class="shortcut-block">
+        <div class="icon icon-blue">🔗</div>
+        <div class="content">
+            <span class="text-input">http://192.168.1.176:8000/decide</span>
+        </div>
+    </div>
+
+    <!-- Block 2 -->
+    <div class="shortcut-block">
+        <div class="icon icon-green">⬇️</div>
+        <div class="content">
+            Get contents of <span class="magic-variable">🔗 URL</span>
+        </div>
+    </div>
+
+    <!-- Block 3 -->
+    <div class="shortcut-block">
+        <div class="icon icon-orange">📙</div>
+        <div class="content">
+            Get dictionary from <span class="magic-variable">⬇️ Contents of URL</span>
+        </div>
+    </div>
+
+    <!-- Block 4 -->
+    <div class="shortcut-block">
+        <div class="icon icon-orange">📙</div>
+        <div class="content">
+            Get <span class="text-input">Value</span> for <span class="text-input">verdict</span> in <span class="magic-variable orange">📙 Dictionary</span>
+        </div>
+    </div>
+
+    <!-- Block 5 -->
+    <div class="shortcut-block">
+        <div class="icon icon-gray">🔀</div>
+        <div class="content">
+            If <span class="magic-variable orange">📙 Dictionary Value</span> is <span class="text-input">TRAIN</span>
+        </div>
+    </div>
+
+    <!-- Block 6 (Indented) -->
+    <div class="shortcut-block indented">
+        <div class="icon icon-orange">📙</div>
+        <div class="content">
+            Get <span class="text-input">Value</span> for <span class="text-input">reason</span> in <span class="magic-variable orange">📙 Dictionary</span>
+        </div>
+    </div>
+
+    <!-- Block 7 (Indented) -->
+    <div class="shortcut-block indented">
+        <div class="icon icon-red">💬</div>
+        <div class="content">
+            Show alert <span class="text-input">Take the train!</span> <span class="magic-variable orange">📙 Dictionary Value (from Block 6)</span>
+        </div>
+    </div>
+
+    <!-- Block 8 -->
+    <div class="shortcut-block">
+        <div class="icon icon-gray">🔀</div>
+        <div class="content">
+            Otherwise
+        </div>
+    </div>
+
+    <!-- Block 9 (Indented) -->
+    <div class="shortcut-block indented">
+        <div class="icon icon-orange">📙</div>
+        <div class="content">
+            Get <span class="text-input">Value</span> for <span class="text-input">reason</span> in <span class="magic-variable orange">📙 Dictionary</span>
+        </div>
+    </div>
+
+    <!-- Block 10 (Indented) -->
+    <div class="shortcut-block indented">
+        <div class="icon icon-red">🔔</div>
+        <div class="content">
+            Show notification <span class="text-input">Take the car!</span> <span class="magic-variable orange">📙 Dictionary Value (from Block 9)</span>
+        </div>
+    </div>
+
+    <!-- Block 11 -->
+    <div class="shortcut-block">
+        <div class="icon icon-gray">🔀</div>
+        <div class="content">
+            End If
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
